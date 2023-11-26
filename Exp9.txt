@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace usingLinq
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] num= { 1, 2, 3 };
+            var evenno=from no in num where (no%2==0) select no;
+            foreach (int i in evenno)
+            {
+                Console.WriteLine("EvenNo:"+i);
+            }
+            int[] Scores = { 97, 92, 81, 60 };
+            IEnumerable<int> scorequery=from score in Scores where score>80 orderby score select score;
+            foreach (int i in scorequery)
+            {
+                Console.WriteLine("Score:" + i);
+            }
+            string[] str = { "the", "brown", "fox", "jumps" };
+            IEnumerable<string> query = from word in str where word.Length == 3 orderby word.Length,word.Substring(0,1) select word;
+            foreach (string i in query) {
+                Console.WriteLine(i);
+            }
+            List<string> list = new List<string>() { "an","apple","obj"};
+            var query1 =from word in list select word.Substring(0,2);
+            foreach(string i in query1)
+            {
+                Console.WriteLine(i);
+            }
+            Console.ReadLine();
+        }
+    }
+}
