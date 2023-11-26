@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConstructorOverloading
+{
+    internal class Program
+    {
+        class Book
+        {
+            int a, b;
+            string c;
+
+            public Book(int aa, int bb)
+            {
+                this.a = aa;
+                this.b = bb;
+            }
+            public Book(int aa, string cc)
+            {
+                this.a = aa;
+                this.c = cc;
+            }
+            public void show()
+            {
+                Console.WriteLine(a + " " + b);
+            }
+
+            public void show1()
+            {
+                Console.WriteLine(a + "" + c);
+            }
+           
+        }
+        static void Main(string[] args)
+        {
+            Book obj = new Book(1, "java");
+            obj.show1();
+            Book obj1 = new Book(2, 1);
+            obj1.show();
+           
+            Console.ReadLine();
+        }
+    }
+}

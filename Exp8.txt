@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Cookies
+{
+    public partial class Register : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            TextBox1.Focus();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if(TextBox1.Text.Length>=8)
+            {
+                if (TextBox2.Text != null)
+                {
+                    if (TextBox3.Text == TextBox2.Text)
+                    {
+                        if(TextBox5.Text.Length==10) {
+                            Response.Redirect("Login.aspx");
+                        }
+                        else
+                        {
+                            Response.Write("mobile no should be crt");
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("password and confirm password should be same");
+                    }
+                }
+                else
+                {
+                    Response.Write("password should not ne empty");
+                }
+            }
+            else
+            {
+                Response.Write("UserName is invalid");
+            }
+        }
+    }
+}
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Cookies
+{
+    public partial class Login : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            TextBox1.Focus();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if(TextBox1.Text=="admin" && TextBox2.Text=="admin") {
+                Response.Redirect("Home.aspx");
+            }
+            else
+            {
+                Response.Write("user id and password is invalid");
+            }
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Cookies
+{
+    public partial class Home : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Write("Welcome");
+        }
+    }
+}
